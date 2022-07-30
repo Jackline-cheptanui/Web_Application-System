@@ -1,0 +1,58 @@
+<DOCTYPE html>
+    <html>
+    <head>
+        <title>Patient Visiting</title>
+    </head>
+    <body>
+        <style>
+            #visits {
+             font-family: Arial, Helvetica, sans-serif;
+             border-collapse: collapse;
+             width: 100%;
+           }
+           
+           #visits td, #visits th {
+             border: 1px solid rgb(15, 15, 15);
+             padding: 8px;
+           }
+           
+           #visits tr:nth-child(even){background-color: #f2f2f2be;}
+           
+           #visits tr:hover {background-color: rgba(221, 221, 221, 0.192);}
+           
+           #visitsvisits th {
+             padding-top: 12px;
+             padding-bottom: 12px;
+             text-align: left;
+             background-color: palevioletred;
+             color:black;
+           }
+               
+               h1{
+                   text-align: center;
+                   color: black;
+                   padding-top: 10%;
+               }
+        </style> 
+        <h1>Patient VisitList Data</h1>      
+        
+        <table id="Visits">
+            <th>patient_name</th>
+            <th>visit_date</th>
+            <th>patient_general_health</th>
+            <th>comment</th>
+            <th>weight_choice</th>
+            </tr>
+            {% for visit in visits %}
+            <tr>
+                
+                <td>{{visit.patient_name}}</td>
+                <td>{{visit.visit_date}}</td>
+                <td>{{visit.patient_general_health}}</td>
+                <td>{{visit.comments}}</td>
+                <td>{{visit.weight_choice}}</td>
+               </tr>
+            {%endfor%}
+        </table>
+    </body>
+    </html>

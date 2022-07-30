@@ -1,0 +1,62 @@
+<DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #patients {
+         font-family: Arial, Helvetica, sans-serif;
+         border-collapse: collapse;
+         width: 100%;
+       }
+       
+       #patients td, #patients th {
+         border: 1px solid rgb(15, 15, 15);
+         padding: 8px;
+       }
+       
+       #patients tr:nth-child(even){background-color: #f2f2f2;}
+       
+       #patients tr:hover {background-color: rgba(221, 221, 221, 0.192);}
+       #patientspatients th {
+         padding-top: 12px;
+         padding-bottom: 12px;
+         text-align: left;
+         background-color: palevioletred;
+         color:black;
+       }
+           
+           h1{
+               text-align: center;
+               color: black;
+               padding-top: 10%;
+           }
+    </style> 
+    <h1>PatientsList Data</h1>      
+    
+    <table id="Patients">
+       
+            <th>patient_number</th>
+            <th>registration_date</th>
+            <th>First_name</th>
+            <th>last_name</th>
+            <th>date_of_birth</th>
+            <th>gender</th>
+        </tr>
+        {% for patient in patients%}
+        <tr>
+            
+             <td>{{patient.patient_number}}</td>
+            <td>{{patient.registration_date}}</td>
+            <td>{{patient.first_name}}</td>
+            <td>{{patient.last_name}}</td>
+            <td>{{patient.date_of_birth}}</td>
+            <td>{{patient.gender}}</td> 
+           </tr>
+        {%endfor%}
+    </table>
+</body>
+</html>
+
+

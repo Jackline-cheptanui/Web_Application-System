@@ -1,0 +1,76 @@
+<DOCTYPE html>
+    <html>
+    <head>
+        <title>Vitalsystem</title>
+    </head>
+    <body>
+        <style>
+            #vitals {
+             font-family: Arial, Helvetica, sans-serif;
+             border-collapse: collapse;
+             width: 100%;
+           }
+           
+           #vitals td, #vitals th {
+             border: 1px solid rgb(15, 15, 15);
+             padding: 8px;
+           }
+           
+           #vitals tr:nth-child(even){background-color: #f2f2f2be;}
+           
+           #vitals tr:hover {background-color: rgba(221, 221, 221, 0.192);}
+           
+           #vitalsvitals th {
+             padding-top: 12px;
+             padding-bottom: 12px;
+             text-align: left;
+             background-color: palevioletred;
+             color:black;
+           }
+               
+               h1{
+                   text-align: center;
+                   color: black;
+                   padding-top: 10%;
+               }
+        </style> 
+        <h1>PatientsVital List Data</h1>      
+        
+        <table id="Vitals">
+           
+            <th>patient_name</th>
+            <th>patient_visit_date</th>
+            <th>patient_height_in_center_metres</th>
+            <th>patient_weight_in_kg</th>
+            <th>age</th>
+            <th>patient_Bmi</th>
+            </tr>
+            {% for vital in vitals%}
+
+            <tr> 
+                <td>{{vital.patient_name}}</td>
+                <td>{{vital.patient_visit_date}}</td>
+                <td>{{vital.patient_height_in_center_metres}}</td>
+                <td>{{vital.patient_weight_in_kg}}</td>
+                <td>{{vital.age}}</td>
+
+                {% if vital.patient_bmi < 18.5 %}
+                    <td>{{vital.patient_bmi}} - Underweight</td>
+                {% endif %}    
+                {% if vital.patient_bmi > 18.5 and vital.patient_bmi < 25.0  %}  
+                    <td>{{vital.patient_bmi}} - Normal</td>
+                {% endif %}    
+   
+                {% if vital.patient_bmi >= 25.5 %}
+                    <td>{{vital.patient_bmi}} - Overweight</td>
+                {% endif %}    
+    
+
+    
+  
+               </tr>
+            {%endfor%}
+        </table>
+    </body>
+    </html>
+
